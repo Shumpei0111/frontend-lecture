@@ -1,7 +1,7 @@
 import Storage from "./core/storage.js";
 
 export const checkRegistered = ( userData ) => {
-    if( userData ) location.href = "/index.html";
+    if( userData && userData.name || userData && userData.icon ) location.href = "/index.html";
 }
 
 ( () => {
@@ -10,6 +10,13 @@ export const checkRegistered = ( userData ) => {
 
     $registerBtn.addEventListener( "click", (e) => {
         e.preventDefault();
+
+        const $name = document.getElementById( "registUserName" ).value;
+        if( $name === "" ) {
+            alert( "名前を入力してください" );
+            return;
+        }
+
         const _storage = new Storage();
         _storage.registerUserData();
         location.href = "/index.html";

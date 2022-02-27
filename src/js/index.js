@@ -8,12 +8,12 @@ import { checkRegistered } from './userRegister.js';
         const $yet = document.getElementById( "yetRegist" );
         const $registed = document.getElementById( "registed" );
 
-        if( !userData ) {
+        if( !userData.name && !userData.icon ) {
             $yet.removeAttribute( "style", "display:none" );
             $registed.setAttribute( "style", "display:none" );
         }
 
-        if( userData ) {
+        if( userData.name || userData.icon ) {
             $yet.setAttribute( "style", "display:none" );
             $registed.removeAttribute( "style", "display:none" );
         }
@@ -30,7 +30,9 @@ import { checkRegistered } from './userRegister.js';
 
         const _sideNavi = new SideNavi();
         _sideNavi.createMenu();
-        _sideNavi.setUserData( _userData );
+        if( _userData && _userData.name || _userData && _userData.icon ) {
+            _sideNavi.setUserData( _userData );
+        }
 
         if( location.pathname === "/index.html" ) {
             showRegisterLink( _userData );
