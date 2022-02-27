@@ -1,0 +1,22 @@
+address {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+#app main {
+    flex: 1;
+    display: flex;
+    min-width: 700px;
+}
+
+#sideNavi {
+    min-width: 240px;
+    border-right: 1px solid #e9e9e9;
+}
