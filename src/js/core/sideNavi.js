@@ -21,7 +21,7 @@ export default class SideNavi {
             },
             {
                 name: "GitHub",
-                url: "",
+                url: "https://github.com/Shumpei0111/frontend-lecture",
                 pageType: "global",
                 isTargetBlank: true,
             }
@@ -90,6 +90,7 @@ export default class SideNavi {
 
             if( item.isTargetBlank ) {
                 aTag.setAttribute( "target", "_blank" );
+                aTag.setAttribute( "rel", "noopener noreferrer" );
             }
 
             box.appendChild( aTag );
