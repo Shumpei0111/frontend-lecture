@@ -12,7 +12,7 @@ export default class Storage {
 
     getUserData() {
         const data = Cookies.get( "userData" );
-        const parseData = JSON.parse( data );
+        const parseData = data ? JSON.parse( data ) : { name: "", icon: "" };
 
         if( parseData && parseData.name || parseData && parseData.icon ) {
             this.userData.name = parseData.name;
@@ -26,14 +26,9 @@ export default class Storage {
         const $form = document.getElementById( "registerForm" );
 
         if( !$form ) { return; }
-        
-        const userData = {
-            name: null,
-            icon: null,
-        };
 
-        userData.name = document.getElementById( "registUserName" ).value;
-        userData.icon = $form.icon.value;
-        Cookies.set( "userData", JSON.stringify( userData ), this.baseOption );
+        this.userData.name = document.getElementById( "registUserName" ).value;
+        this.userData.icon = $form.icon.value;
+        Cookies.set( "userData", JSON.stringify( this.userData ), this.baseOption );
     }
 }

@@ -61,13 +61,26 @@ export default class SideNavi {
         const iconTextNode = document.createTextNode( userIcon );
         iconSpan.appendChild( iconTextNode );
 
+        const editTag = document.createElement( "span" );
+        editTag.id = "editUserData";
+        editTag.classList.add( "edit-userAvatar" );
+        const editTextNode = document.createTextNode( "[編集]" );
+        editTag.appendChild( editTextNode );
 
-        const appendItems = [ iconSpan, nameSpan ];
+        const appendItems = [ iconSpan, nameSpan, editTag ];
         appendItems.map( item => {
             wrapper.appendChild( item );
         } );
 
         this.$sideNavi.appendChild( wrapper );
+
+
+        // ユーザ情報編集画面遷移前の処理
+        const $editUserData = document.getElementById( "editUserData" );
+        $editUserData.addEventListener( "click", () => {
+            Cookies.remove( "userData" );
+            location.href = "/register.html";
+        }, false );
     }
 
     createMenu() {
