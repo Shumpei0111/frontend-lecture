@@ -4,14 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>フロントエンド講座 | ユーザ登録</title>
+    <title>フロントエンド講座 | 履修登録</title>
+    <link rel="stylesheet" type="text/css" href="./src/reset.css">
+    <link rel="stylesheet" type="text/css" href="./src/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>😈</text></svg>">
 </head>
 <body>
-    <div id="registerContainer">
-        <h2>登録画面</h2>
-        
+    <div id="app">
+        <main>
+            <div id="sideNavi">
+                <div id="sideNavi">
+                    <h1><a href="./index.html">フロントエンド講座</a></h1>
+                </div>
+            </div>
+            <div id="registerContainer">
+                <h2>履修登録</h2>
+                <form id="registerForm">
+                    <label for="registUserName">名前</label>
+                    <input type="text" id="registUserName" maxlength="16">
+
+                    <p>アイコンを選択</p>
+                    <label for="dog">🐶</label>
+                    <input type="radio" name="icon" id="dog" value="dog" checked>
+
+                    <label for="monkey">🐵</label>
+                    <input type="radio" name="icon" id="monkey" value="monkey">
+
+                    <label for="bird">🐓</label>
+                    <input type="radio" name="icon" id="bird" value="bird">
+
+                    <label for="peach">🍑</label>
+                    <input type="radio" name="icon" id="peach" value="peach">
+
+                    <button id="userDataRegisterButton">登録する</button>
+                </form>
+            </div>    
+        </main>
+        <footer>
+            <address>copyright Shumpei All rights reserved.</address>
+        </footer>
     </div>
-    <a href="./index.html">HOMEに戻る</a>
-    <script src="./src/index.js"></script>
+    <script src="./src/js/vendor/js-cookie.js" type="text/javascript"></script>
+    <script src="./src/js/userRegister.js" type="module"></script>
+    <script src="./src/js/index.js" type="module"></script>
 </body>
 </html>
