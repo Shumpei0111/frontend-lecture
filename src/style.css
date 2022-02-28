@@ -38,7 +38,14 @@ h2 {
 
 #app .main-area {
     width: calc(100vw - 240px);
-    padding: 80px 140px;
+    padding: 80px;
+}
+
+#userRegisterContainer #yetRegist a {
+    display: block;
+    color: var(--primary-blue);
+    padding: 16px 0;
+    margin: 16px auto;
 }
 
 #sideNavi {
