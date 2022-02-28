@@ -1,6 +1,27 @@
+:root {
+    --primary-black: #0d1117;
+    --secondary-black: #161b22;
+
+    --primary-white: #c9d1d9;
+
+    --primary-grey: #0D1117;
+
+    --primary-blue: #58a6ff;
+}
+
+body {
+    color: var(--primary-white);
+    background-color: var(--primary-black);
+}
+
 address {
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: center;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
 }
 
 #app {
@@ -13,10 +34,66 @@ address {
 #app main {
     flex: 1;
     display: flex;
-    min-width: 700px;
+}
+
+#app .main-area {
+    width: calc(100vw - 240px);
+    padding: 80px 140px;
 }
 
 #sideNavi {
-    min-width: 240px;
-    border-right: 1px solid #e9e9e9;
+    position: relative;
+    background-color: var(--secondary-black);
+    width: 240px;
+    border-right: 1px solid var(--primary-grey);
+    padding: 0 16px 24px;
+}
+
+#sideNavi h1 {
+    margin: 12px auto 40px;
+}
+
+#sideNavi a {
+    font-weight: bold;
+    color: var(--primary-white);
+    text-decoration: none;
+}
+
+#sideMenuWrapper ul {
+    list-style-type: none;
+}
+
+#sideMenuWrapper li {
+    margin-bottom: 64px;
+}
+
+#sideMenuWrapper li a:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
+#userAvatar .edit-userAvatar {
+    font-size: 1.2rem;
+    padding-left: 8px;
+}
+
+#userAvatar .edit-userAvatar:hover {
+    cursor: pointer;
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
+
+.registerForm .registerForm__item {
+    margin-bottom: 24px;
+}
+
+.registerForm__item .registerForm__atention {
+    margin: 16px 0;
+    font-size: 1.2rem;
+}
+
+footer {
+    padding: 8px 30px;
+    background-color: var(--secondary-black);
 }

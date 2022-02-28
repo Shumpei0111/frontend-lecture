@@ -34,7 +34,7 @@ import { checkRegistered } from './userRegister.js';
             _sideNavi.setUserData( _userData );
         }
 
-        if( location.pathname === "/index.html" ) {
+        if( location.pathname === "/index.html" || location.pathname === "/" ) {
             showRegisterLink( _userData );
         }
 

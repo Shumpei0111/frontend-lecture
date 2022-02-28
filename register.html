@@ -13,30 +13,34 @@
     <div id="app">
         <main>
             <div id="sideNavi">
-                <div id="sideNavi">
-                    <h1><a href="./index.html">フロントエンド講座</a></h1>
-                </div>
+                <h1><a href="./index.html">😈フロントエンド講座</a></h1>
             </div>
-            <div id="registerContainer">
+            <div id="registerContainer" class="main-area">
                 <h2>履修登録</h2>
-                <form id="registerForm">
-                    <label for="registUserName">あなたの名前</label>
-                    <input type="text" id="registUserName" maxlength="16">
-
-                    <p>アイコンを選択</p>
-                    <label for="dog">🐶</label>
-                    <input type="radio" name="icon" id="dog" value="dog" checked>
-
-                    <label for="monkey">🐵</label>
-                    <input type="radio" name="icon" id="monkey" value="monkey">
-
-                    <label for="bird">🐓</label>
-                    <input type="radio" name="icon" id="bird" value="bird">
-
-                    <label for="peach">🍑</label>
-                    <input type="radio" name="icon" id="peach" value="peach">
-
-                    <button id="userDataRegisterButton">登録する</button>
+                <form id="registerForm" class="registerForm">
+                    <div class="registerForm__item">
+                        <label for="registUserName">あなたの名前</label>
+                        <input type="text" id="registUserName" maxlength="16">
+                    </div>
+                    <div class="registerForm__item">
+                        <p>アイコンを選択</p>
+                        <label for="dog">🐶</label>
+                        <input type="radio" name="icon" id="dog" value="dog" checked>
+    
+                        <label for="monkey">🐵</label>
+                        <input type="radio" name="icon" id="monkey" value="monkey">
+    
+                        <label for="bird">🐓</label>
+                        <input type="radio" name="icon" id="bird" value="bird">
+    
+                        <label for="peach">🍑</label>
+                        <input type="radio" name="icon" id="peach" value="peach">
+    
+                    </div>
+                    <div class="registerForm__item">
+                        <button id="userDataRegisterButton">登録する</button>
+                        <p class="registerForm__atention">※データはどのサーバにも送信されません。</p>
+                    </div>
                 </form>
             </div>    
         </main>
