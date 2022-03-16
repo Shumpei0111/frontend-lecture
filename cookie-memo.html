@@ -13,18 +13,24 @@
     <div id="app">
         <main>
             <div id="sideNavi">
+                <span id="toggleShowNav" class="toggle-nav"></span>
                 <h1><a href="./index.html">😈フロントエンド講座</a></h1>
             </div>
             <div id="cookie-memo" class="main-area">
-                講座開始をお待ちください
+                <div id="appContainer">
+                    <h2>メモアプリ</h2>
+                    <!-- テキスト -->
+                </div>
             </div>
         </main>
         <footer>
             <address>copyright Shumpei All rights reserved.</address>
         </footer>
     </div>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <script src="./src/js/vendor/js-cookie.js" type="text/javascript"></script>
-    <script src="./src/js/core/sideNavi.js" type="module"></script>
+    <script src="./src/js/cookie-memo/memo.js" type="module"></script>
     <script src="./src/js/index.js" type="module"></script>
 </body>
 </html>

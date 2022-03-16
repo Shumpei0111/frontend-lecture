@@ -31,6 +31,9 @@ export default class SideNavi {
             name: null,
             icon: null
         };
+
+        this.isToggleShow = true;
+        this.toggleShowNav();
     }
 
     setUserData( data ) {
@@ -116,5 +119,22 @@ export default class SideNavi {
         // サイドメニュー挿入
         menuWrapper.appendChild( listContainer );
         this.$sideNavi.appendChild( menuWrapper );
+    }
+
+    toggleShowNav() {
+        const self = this;
+        const $target = document.getElementById( "toggleShowNav" );
+
+        $target.addEventListener( "click", function() {
+            if( self.isToggleShow ) {
+                self.$sideNavi.classList.add( "nav-close" );
+                $target.classList.add( "--close" );
+            } else {
+                self.$sideNavi.classList.remove( "nav-close" );
+                $target.classList.remove( "--close" );
+            }
+
+            self.isToggleShow =! self.isToggleShow;
+        }, false );
     }
 }
