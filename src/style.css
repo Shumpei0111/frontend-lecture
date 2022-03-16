@@ -54,6 +54,34 @@ h2 {
     width: 240px;
     border-right: 1px solid var(--primary-grey);
     padding: 0 16px 24px;
+    transition: .3s;
+}
+
+#sideNavi.nav-close {
+    width: 50px;
+}
+
+#sideNavi.nav-close * {
+    display: none;
+}
+
+#sideNavi .toggle-nav {
+    padding: 24px 0 8px;
+    display: inline-block;
+}
+
+#sideNavi .toggle-nav:hover {
+    cursor: pointer;
+}
+
+#sideNavi .toggle-nav::after {
+    content: "<<<";
+    font-weight: bold;
+}
+
+#sideNavi .toggle-nav.--close::after {
+    content: ">>>";
+    font-weight: bold;
 }
 
 #sideNavi h1 {
