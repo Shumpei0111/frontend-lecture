@@ -12,6 +12,7 @@
 body {
     color: var(--primary-white);
     background-color: var(--primary-black);
+    overflow-y: scroll;
 }
 
 address {
@@ -75,12 +76,12 @@ h2 {
 }
 
 #sideNavi .toggle-nav::after {
-    content: "<<<";
+    content: "<< 閉じる";
     font-weight: bold;
 }
 
 #sideNavi .toggle-nav.--close::after {
-    content: ">>>";
+    content: ">>";
     font-weight: bold;
 }
 
