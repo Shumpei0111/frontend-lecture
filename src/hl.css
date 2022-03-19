@@ -60,3 +60,7 @@ li code {
 #textContent ol li {
   margin-bottom: 12px;
 }
+
+hr {
+  margin: 24px 0;
+}

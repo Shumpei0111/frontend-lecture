@@ -4,14 +4,13 @@
 
 ## この講座のゴール
 
-- Vue.jsのコンポーネント構成を知る
+- フロントだけで作れるメモアプリの１例
 - JavaScriptでCookieを操作する方法を知る
 - Cookieの設定方法を知る
 
 ## この講座で扱わないこと
 
 - サードパーティCookieについて
-- サーバサイドから付与されるCookieについて
 - ファイル起動時のCookie管理について
 
 ## メモアプリ
@@ -38,7 +37,7 @@ https://lecture-cookie-memo.vercel.app/</a>
 
 基本的にはタスクを登録する。それだけです。
 
-登録されたタスクは、タスクリストに入ります。
+登録されたタスクは、`TaskContainer`が管理するタスクリストに入ります。
 
 また、タスクは「登録」「完了」または「復帰」という状態が存在します。
 
@@ -75,7 +74,7 @@ Cookie が有効の場合は直前と同じ状態で画面が読み込まれま�
 - 入力
 
 <div style="background:white; padding:16px;">
-    <img style="width:100%;" src="/src/content/img/cookie-memo-input.svg?6">
+    <img style="width:100%;" src="/src/content/img/cookie-memo-input.svg?7">
 </div>
 
 1. ユーザから入力を受け付ける
@@ -121,7 +120,14 @@ Cookie が有効の場合は直前と同じ状態で画面が読み込まれま�
 
 既にある有名なライブラリを使用する方がいいでしょう。
 
-- [js-cookie(npm)](https://www.npmjs.com/package/js-cookie)
++----------------------------------------------------------+
+
+**■ js-cookie**
+
+- [npm](https://www.npmjs.com/package/js-cookie)
+- [GitHub](https://github.com/js-cookie/js-cookie)
+
++----------------------------------------------------------+
 
 操作方法などは各自で調べてみてください。
 
@@ -407,3 +413,11 @@ lax モードの Cookie は、以下の条件を満たしている場合は送�
   - value が多くなる場合は複数のペアを作る必要があります（=通信が増える）
   - Local Storage の使用を検討してもいいかもしれません
 - 一意のドメインごとの Cookie の総数は 20+ （ブラウザによって変動） で制限されています
+
+---
+
+引用
+
+- [https://ja.javascript.info/cookie](https://ja.javascript.info/cookie)
+- [ウェブセキュリティの常識（徳丸浩 | EGセキュア ソリューションズ）](https://www.slideshare.net/ockeghem/kobe-minicamp2017)
+- [http://tech-blog.tsukaby.com/archives/894](http://tech-blog.tsukaby.com/archives/894)
