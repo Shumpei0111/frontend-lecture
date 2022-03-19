@@ -18,12 +18,14 @@ pre code {
   line-height: 2.2;
 }
 
-p code {
+p code,
+li code {
   color: #a1a19a;
   background: #002635;
+  font-size: 1.2rem;
+  font-weight: bold;
   padding: 4px;
   margin: 0 4px;
-  font-size: 1.2rem;
 }
 
 #textContent {
