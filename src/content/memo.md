@@ -194,20 +194,63 @@ JavaScript が Cookie を書き込む場合、ブラウザを通して key 名�
 
 **■やってみよう**
 
-FireFoxを立ち上げコンソールを開き、以下のコードの違いを確かめてみましょう。
+以下のコードの違いを確かめてみましょう。
 
 ```js
+function getCookie(name) {
+  const matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 const key = "This_is_evil_script";
-const value = "<script>alert(1);</script>";
+le value = `<script>alert("Exec Evil Code!!!!!")</script>`;
 
 // 👎
-document.cookie = `${key}=${value}`;
+document.cookie = `${key}=${value};;`;
+const evilCookie = getCookie( key );
+document.getElementsByTagName("body")[0].innerHTML = evilCookie;
 
 // 👍
-document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+const evilCookie = getCookie( key );
+document.getElementsByTagName("body")[0].innerHTML = evilCookie;
 
 ```
-執筆時(2022/03/18)現在、FireFoxであれば2つのコードを実行した際の結果が異なることがわかります。
+2つのコードを実行した際の結果が異なることがわかります。
+
+現在のブラウザでは、ブラウザ側でもある程度のエスケープはされているようですが、
+
+基本的にユーザが入力できるような値はすべて `encodeURIComponent` を使用してエスケープ処理を使いましょう。
+
+ただ、下記のようなパターンではエスケープが意味をなさないかもしれません。
+
+```js
+function getCookie(name) {
+  const matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+const key = "This_is_evil_script";
+const value = `alert("😈Exec Evil Code!!!!!😈")`;
+document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+
+
+const evilCookie = getCookie( key );
+const srcElm = document.createElement("script");
+srcElm.innerHTML = evilCookie;
+
+document.getElementsByTagName("body")[0].appendChild(srcElm);
+
+```
+なぜか動的に scirpt タグを作り、
+
+なぜか Cookie の値をそこに埋め込むようなスクリプトを書いたアプリが存在するとき、
+
+Evil Code は実行されてしまうかもしれません...。
 
 ### Cookie のオプションについて - はじめに
 
@@ -357,3 +400,10 @@ lax モードの Cookie は、以下の条件を満たしている場合は送�
 このオプションが設定された Cookie は、 JavaScript からアクセスすることができません。
 
 このオプションが使用できる場合、セキュリティはより強固なものになるでしょう。
+
+## Cookie の制限
+
+- `encodeURIComponent` 後の `name=value` のペアは4KB | 4,096バイト を超えてはいけません
+  - value が多くなる場合は複数のペアを作る必要があります（=通信が増える）
+  - Local Storage の使用を検討してもいいかもしれません
+- 一意のドメインごとの Cookie の総数は 20+ （ブラウザによって変動） で制限されています
