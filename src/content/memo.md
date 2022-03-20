@@ -71,22 +71,22 @@ Cookie が有効の場合は直前と同じ状態で画面が読み込まれま�
 
 以下の画像を参照してください。
 
-- 入力
+- 入力時
 
 <div style="background:white; padding:16px;">
     <img style="width:100%;" src="/src/content/img/cookie-memo-input.svg?7">
 </div>
 
 1. ユーザから入力を受け付ける
-2. App は`Task`クラスから task インスタンスを生成
-3. task インスタンスは App から`TaskContainer`クラスに通知してタスクリストと履歴に追加させる
+2. App は`Task`クラスから task オブジェクトを生成して返却する
+3. 返却されたtask オブジェクトは App から`TaskContainer`クラスに渡し、`TaskContainer`がタスクリストと履歴に追加する
 
 追加する際、タスクリストと履歴にはそれぞれ別のオブジェクトを追加する。
 
 - タスクリストには id と入力値、isFinish というプロパティのオブジェクトを追加する
 - 履歴には id（タスクリストと同値）、ステータス（ `add` | `finish` | `back` ） を追加する
 
-4. タスクリストと履歴が更新されると、 App はリアクティブにモデルを変更する
+4. タスクリストと履歴が更新されると、 App が監視しているモデルが更新されるので、画面も自動的に更新されます。（Vue.jsが更新します）
 5. モデルが変更されたら `CookieManager` クラスは Cookie の値を変更結果に上書きする
 
 - 起動時
