@@ -4,7 +4,7 @@ export default class SideNavi {
 
         this._menu = [
             {
-                name: "Cookieで作るメモアプリ",
+                name: "Cookieで作るTODOアプリ",
                 url: "./cookie-memo.html",
                 pageType: "lecture",
                 isTargetBlank: false,
