@@ -133,3 +133,24 @@ footer {
     padding: 8px 30px;
     background-color: var(--secondary-black);
 }
+
+.to-page-top-container {
+    cursor: pointer;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    transition: .3s;
+}
+
+.to-page-top-container .to-page-top__text {
+    font-size: 1.2rem;
+}
+
+.to-page-top {
+    width: 20px;
+    height: 20px;
+    border-top: solid 3px white;
+    border-right: solid 3px white;
+    margin: auto;
+    transform: rotate(315deg);
+}
