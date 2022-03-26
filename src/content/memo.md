@@ -24,6 +24,12 @@ https://lecture-cookie-memo.vercel.app/</a>
 
 `cooptech / frontend`
 
++---+
+
+<a href="https://github.com/Shumpei0111/lecture-cookie-memo" target="_blank" rel="noopener noreferrer">GitHub</a>
+
+(別ウィンドウで開きます)
+
 +----------------------------------------------------------+
 
 ### 登場人物
