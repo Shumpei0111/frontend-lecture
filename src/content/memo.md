@@ -219,7 +219,7 @@ function getCookie(name) {
 }
 
 const key = "This_is_evil_script";
-le value = `<script>alert("Exec Evil Code!!!!!")</script>`;
+const value = `<script>alert("Exec Evil Code!!!!!")</script>`;
 
 // 👎
 document.cookie = `${key}=${value};;`;
